@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+<div th:switch="${buyers}">
+    <h2 th:case="null">No users found!</h2>
+    <div th:case="*">
+        <h2>Buyers</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Phone Number</th>
+                <th>Address</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="buyer : ${buyers}">
+                <td th:text="${buyer.buyerId}"></td>
+                <td th:text="${buyer.buyerName}"></td>
+                <td th:text="${buyer.buyerPhoneNumber}"></td>
+                <td th:text="${buyer.buyerAddress}"></td>
+                <td><a th:href="@{buyers-update/{id}(id=${buyer.buyerId})}">Edit</a></td>
+                <td><a th:href="@{buyers-update/{id}(id=${buyer.buyerId})}">Delete</a></td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/buyers-create">Create buyer</a></p>
+</div>
+</body>
+</html>

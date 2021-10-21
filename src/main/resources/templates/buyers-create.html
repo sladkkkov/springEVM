@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Create</title>
+</head>
+<body>
+<form action="#" th:action="@{/buyer-create}" th:object="${buyer}" method="post">
+    <label for="buyerId"> buyerId</label>
+    <input type ="text" th:field="*(buyerId)" id ="buyerId" placeholder="Buyer Id">
+    <label for="buyerName"> buyerName</label>
+    <input type ="text" th:field="*(buyerName)" id ="buyerName" placeholder="Buyer Name ">
+    <label for="buyerPhoneNumber"> buyerPhoneNumber</label>
+    <input type ="text" th:field="*(buyerPhoneNumber)" id ="buyerPhoneNumber" placeholder="buyer Phone Number">
+    <label for="buyerAddress"> buyerAddress</label>
+    <input type ="text" th:field="*(buyerAddress)" id ="buyerAddress" placeholder="buyer Address">
+</form>
+</body>
+</html>
