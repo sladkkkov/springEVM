@@ -27,27 +27,33 @@ public class BuyerController {
         return "buyer-list";
     }
 
-    @GetMapping("/buyer-create")
+    @GetMapping("/buyers-create")
     public String createBuyerForm(Buyer buyer) {
-        return "buyer-create";
+        return "buyers-create";
     }
 
-    @PostMapping("/buyer-create")
+    @PostMapping("/buyers-create")
     public String createBuyer(Buyer buyer) {
-        buyerService.saveUser(buyer);
+        buyerService.saveBuyer(buyer);
         return "redirect:/buyers";
     }
 
-    @GetMapping("/buyer-update/{id}")
-    public String updateUserForm(@PathVariable("id") Long id, Model model){
+    @GetMapping("/buyers-update/{id}")
+    public String updateUserForm(@PathVariable("id") Integer id, Model model) {
         Buyer buyer = buyerService.fingById(id);
-        model.addAttribute("buyer", buyer);
-        return "buyer-update";
+        model.addAttribute("buyers", buyer);
+        return "buyers-update";
     }
 
-    @PostMapping("/buyer-update")
-    public String updateBuyer(Buyer buyer){
-        buyerService.saveUser(buyer);
+    @PostMapping("/buyers-update")
+    public String updateBuyer(Buyer buyer) {
+        buyerService.saveBuyer(buyer);
+        return "redirect:/buyers";
+    }
+
+    @GetMapping("/buyers-delete/{id}")
+    public String deleteBuyer(@PathVariable("id") Integer id) {
+        buyerService.deleteById(id);
         return "redirect:/buyers";
     }
 }

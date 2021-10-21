@@ -17,19 +17,19 @@ public class BuyerService {
         this.buyerRepository = buyerRepository;
     }
 
-    public Buyer fingById(Long id) {
-        return buyerRepository.getOne(id);
+    public Buyer fingById(Integer id) {
+        return buyerRepository.getById(id);
     }
 
     public List<Buyer> findAll() {
         return buyerRepository.findAll();
     }
 
-    public void saveUser(Buyer buyer) {
+    public void saveBuyer(Buyer buyer) {
         buyerRepository.save(buyer);
     }
 
-    public void deleteById(Long id) {
+    public void deleteById(Integer id) {
         buyerRepository.deleteById(id);
     }
 

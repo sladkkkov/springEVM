@@ -5,15 +5,16 @@
     <title>Create</title>
 </head>
 <body>
-<form action="#" th:action="@{/buyer-create}" th:object="${buyer}" method="post">
-    <label for="buyerId"> buyerId</label>
-    <input type ="text" th:field="*(buyerId)" id ="buyerId" placeholder="Buyer Id">
-    <label for="buyerName"> buyerName</label>
-    <input type ="text" th:field="*(buyerName)" id ="buyerName" placeholder="Buyer Name ">
-    <label for="buyerPhoneNumber"> buyerPhoneNumber</label>
-    <input type ="text" th:field="*(buyerPhoneNumber)" id ="buyerPhoneNumber" placeholder="buyer Phone Number">
-    <label for="buyerAddress"> buyerAddress</label>
-    <input type ="text" th:field="*(buyerAddress)" id ="buyerAddress" placeholder="buyer Address">
+<form action="#" th:action="@{/buyers-create}" th:object="${buyer}" method="post">
+    <label for="buyerId"> Buyer id</label>
+    <input type ="text" th:field="*{buyerId}" id ="buyerId" placeholder="Buyer Id">
+    <label for="buyerName"> Buyer name</label>
+    <input type ="text" th:field="*{buyerName}" id ="buyerName" placeholder="Buyer Name ">
+    <label for="buyerPhoneNumber"> Buyer phone number</label>
+    <input type ="text" th:field="*{buyerPhoneNumber}" id ="buyerPhoneNumber" placeholder="Buyer phone number">
+    <label for="buyerAddress"> Buyer address</label>
+    <input type ="text" th:field="*{buyerAddress}" id ="buyerAddress" placeholder="Buyer address">
+    <input type ="submit" value="Create User">
 </form>
 </body>
 </html>

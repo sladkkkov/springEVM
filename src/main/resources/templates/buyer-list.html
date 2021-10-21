@@ -2,14 +2,48 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Users</title>
+    <title>Buyers</title>
+    <style type="text/css">
+
+        .table {
+            width: 100%;
+            margin-bottom: 20px;
+            border: 5px solid #fff;
+            border-top: 5px solid #fff;
+            border-bottom: 3px solid #fff;
+            border-collapse: collapse;
+            outline: 3px solid #ffd300;
+            font-size: 15px;
+            background: #fff!important;
+        }
+        .table th {
+            font-weight: bold;
+            padding: 7px;
+            background: #ffd300;
+            border: none;
+            text-align: left;
+            font-size: 15px;
+            border-top: 3px solid #fff;
+            border-bottom: 3px solid #ffd300;
+        }
+        .table td {
+            padding: 7px;
+            border: none;
+            border-top: 3px solid #fff;
+            border-bottom: 3px solid #fff;
+            font-size: 15px;
+        }
+        .table tbody tr:nth-child(even){
+            background: #f8f8f8!important;
+        }
+</style>
 </head>
 <body>
 <div th:switch="${buyers}">
     <h2 th:case="null">No users found!</h2>
     <div th:case="*">
         <h2>Buyers</h2>
-        <table>
+        <table class = "table">
             <thead>
             <tr>
                 <th>Id</th>
@@ -25,7 +59,7 @@
                 <td th:text="${buyer.buyerPhoneNumber}"></td>
                 <td th:text="${buyer.buyerAddress}"></td>
                 <td><a th:href="@{buyers-update/{id}(id=${buyer.buyerId})}">Edit</a></td>
-                <td><a th:href="@{buyers-update/{id}(id=${buyer.buyerId})}">Delete</a></td>
+                <td><a th:href="@{buyers-delete/{id}(id=${buyer.buyerId})}">Delete</a></td>
 
             </tr>
             </tbody>
