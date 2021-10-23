@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Furniture List</title>
+</head>
+<body>
+<div th:switch="${furnitures}">
+    <h2 th:case="null">No users found!</h2>
+    <div th:case="*">
+        <h2>Buyers</h2>
+        <table class = "table">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Color</th>
+                <th>Price</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="furniture:${furnitures}">
+                <td th:text="${furniture.furnitureModelId}"></td>
+                <td th:text="${furniture.modelName}"></td>
+                <td th:text="${furniture.modelColor}"></td>
+                <td th:text="${furniture.price}"></td>
+                <td th:text="${furniture.description}"></td>
+                <td><a th:href="@{furniture-update/{id}(id=${furniture.furnitureModelId})}">Edit</a></td>
+                <td><a th:href="@{furniture-delete/{id}(id=${furniture.furnitureModelId})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/furniture-create">Create furniture</a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<meta charset="UTF-8">
+<title>Create furniture</title>
+</head>
+<body>
+<form action="#" th:action="@{/furniture-update}" th:object="${furniture}" method="post">
+    <label for="furnitureModelId">Furniture number </label>
+    <input type="text" th:field="*{furnitureModelId}" id="furnitureModelId" placeholder="Furniture model id">
+    <br/>
+    <label for="modelName">Model name</label>
+    <input readonly type="number" th:field="*{modelName}" id="modelName" placeholder="Model name">
+    <br/>
+    <label for="modelColor">Model color</label>
+    <input type="text" th:field="*{modelColor}" id="modelColor" placeholder="Model color">
+    <label for="price">Price</label>
+    <input type="text" th:field="*{price}" id="price" placeholder="Price">
+    <label for="description">Description</label>
+    <input type="text" th:field="*{description}" id="description" placeholder="Description">
+    <br/>
+    <input type="submit" value="Update furniture">
+</form>
+</body>
+</html>

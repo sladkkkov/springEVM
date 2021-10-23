@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<meta charset="UTF-8">
+<title>Create contract</title>
+</head>
+<body>
+<form action="#" th:action="@{/contract-update}" th:object="${contract}" method="post">
+    <label for="contractId">Contract number </label>
+    <input type="text" th:field="*{contractId}" id="contractId" placeholder=" Contract number">
+    <br/>
+    <label for="buyerId">Buyer id</label>
+    <input readonly type="number" th:field="*{buyerId}" id="buyerId" placeholder="Buyer id">
+    <br/>
+    <label for="dateOfDeclaration">Date of declaration </label>
+    <input type="text" th:field="*{dateOfDeclaration}" id="dateOfDeclaration" placeholder="Date of declaration">
+    <label for="dateOfExecution">Date of declaration</label>
+    <input type="text" th:field="*{dateOfExecution}" id="dateOfExecution" placeholder="Date of execution">
+    <br/>
+    <input type="submit" value="Update contract">
+</form>
+</body>
+</html>
