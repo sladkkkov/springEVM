@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<meta charset="UTF-8">
+<title>Create buyer</title>
+</head>
+<body>
+<form action="#" th:action="@{/realization-update}" th:object="${realization}" method="post">
+    <label for="fkContractId">Contract id</label>
+    <input readonly type="number" th:field="*{fkContractId}" id="fkContractId" placeholder="Contract id">
+    <br/>
+    <label for="fkModelId"> Model id </label>
+    <input type="text" th:field="*{fkModelId}" id="fkModelId" placeholder=" Model id">
+    <br/>
+    <label for="quantity">Quantity</label>
+    <input type="text" th:field="*{quantity}" id="quantity" placeholder="quantity">
+      <br/>
+    <input type="submit" value="Update realization">
+</form>
+</body>
+</html>

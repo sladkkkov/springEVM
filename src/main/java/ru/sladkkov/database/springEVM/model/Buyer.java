@@ -1,20 +1,19 @@
 package ru.sladkkov.database.springEVM.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "buyer")
 public class Buyer {
-    public Buyer(int buyerId, String buyerName, String buyerPhoneNumber, String buyerAddress) {
-        this.buyerId = buyerId;
-        this.buyerName = buyerName;
-        this.buyerPhoneNumber = buyerPhoneNumber;
-        this.buyerAddress = buyerAddress;
-    }
-
     @Id
     @Column(name = "buyers_id")
     private int buyerId;
@@ -28,8 +27,8 @@ public class Buyer {
     @Column(name = "buyers_address")
     private String buyerAddress;
 
-    public Buyer() {
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_buyer_id")
+    private List<Contract> contracts;
 
-
-    }
 }

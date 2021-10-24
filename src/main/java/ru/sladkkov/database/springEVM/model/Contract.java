@@ -1,20 +1,20 @@
 package ru.sladkkov.database.springEVM.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "contract")
 public class Contract {
-    public Contract(int buyerId, int contractId, Date dateOfDeclaration, Date dateOfExecution) {
-        this.buyerId = buyerId;
-        this.contractId = contractId;
-        this.dateOfDeclaration = dateOfDeclaration;
-        this.dateOfExecution = dateOfExecution;
-    }
+
     @Id
     @Column(name = "contract_id")
     private int contractId;
@@ -25,7 +25,7 @@ public class Contract {
     @Column(name = "date_of_execution")
     private Date dateOfExecution;
 
-    public Contract() {
-
-    }
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_contract_id")
+    private List<Realization> realizations;
 }

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Create</title>
+</head>
+<body>
+<form action="#" th:action="@{/realization-create}" th:object="${realization}" method="post">
+    <label for="fkContractId"> fkContractId</label>
+    <input type ="text" th:field="*{fkContractId}" id ="fkContractId" placeholder="fkContractId">
+    <label for="fkModelId"> fkModelId</label>
+    <input type ="text" th:field="*{fkModelId}" id ="fkModelId" placeholder="fkModelId">
+    <label for="quantity">Quantity</label>
+    <input type ="text" th:field="*{quantity}" id ="quantity" placeholder="Quantity">
+
+    <input type ="submit" value="Create realization">
+</form>
+</body>
+</html>

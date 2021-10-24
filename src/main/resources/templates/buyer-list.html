@@ -1,70 +1,47 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Buyers</title>
-    <style type="text/css">
-        .table {
-            width: 100%;
-            margin-bottom: 20px;
-            border: 5px solid #fff;
-            border-top: 5px solid #fff;
-            border-bottom: 3px solid #fff;
-            border-collapse: collapse;
-            outline: 3px solid #ffd300;
-            font-size: 15px;
-            background: #fff!important;
-        }
-        .table th {
-            font-weight: bold;
-            padding: 7px;
-            background: #ffd300;
-            border: none;
-            text-align: left;
-            font-size: 15px;
-            border-top: 3px solid #fff;
-            border-bottom: 3px solid #ffd300;
-        }
-        .table td {
-            padding: 7px;
-            border: none;
-            border-top: 3px solid #fff;
-            border-bottom: 3px solid #fff;
-            font-size: 15px;
-        }
-        .table tbody tr:nth-child(even){
-            background: #f8f8f8!important;
-        }
-</style>
+    <meta charset="utf-8">
+
+    <title>Buyer List</title>
 </head>
 <body>
-<div th:switch="${buyers}">
-    <h2 th:case="null">No users found!</h2>
-    <div th:case="*">
-        <h2>Buyers</h2>
-        <table class = "table">
-            <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Phone Number</th>
-                <th>Address</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="buyer : ${buyers}">
-                <td th:text="${buyer.buyerId}"></td>
-                <td th:text="${buyer.buyerName}"></td>
-                <td th:text="${buyer.buyerPhoneNumber}"></td>
-                <td th:text="${buyer.buyerAddress}"></td>
-                <td><a th:href="@{buyers-update/{id}(id=${buyer.buyerId})}">Edit</a></td>
-                <td><a th:href="@{buyers-delete/{id}(id=${buyer.buyerId})}">Delete</a></td>
 
-            </tr>
-            </tbody>
-        </table>
-    </div>
-    <p><a href="/buyers-create">Create buyer</a></p>
+
+<div class="content">
+
+    <div class="container">
+        <h2 class="mb-5">Buyer List</h2>
+        <div class="table-responsive custom-table-responsive">
+            <table class="table custom-table">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Phone Number</th>
+                    <th>Address</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="buyer : ${buyers}">
+                    <td th:text="${buyer.buyerId}"></td>
+                    <td th:text="${buyer.buyerName}"></td>
+                    <td th:text="${buyer.buyerPhoneNumber}"></td>
+                    <td th:text="${buyer.buyerAddress}"></td>
+                    <td><a th:href="@{buyers-update/{id}(id=${buyer.buyerId})}">Edit</a></td>
+                    <td><a th:href="@{buyers-delete/{id}(id=${buyer.buyerId})}">Delete</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <p><a href="/buyers-create">Create buyer</a></p>
+   </div>
 </div>
+
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
