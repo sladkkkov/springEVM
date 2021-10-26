@@ -2,19 +2,122 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{css/style.label.css}"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Lato);
+
+        *, *:before, *:after{
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            font-family: 'Lato', sans-serif;
+        }
+
+        /*| Navigation |*/
+
+        nav{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #fff;
+            box-shadow: 0 3px 10px -2px rgba(0,0,0,.1);
+            border: 1px solid rgba(0,0,0,.1);
+        }
+        nav ul{
+            list-style: none;
+            position: relative;
+            float: right;
+            margin-right: 100px;
+            display: inline-table;
+        }
+        nav ul li{
+            float: left;
+            -webkit-transition: all .2s ease-in-out;
+            -moz-transition: all .2s ease-in-out;
+            transition: all .2s ease-in-out;
+        }
+
+        nav ul li:hover{background: rgba(0,0,0,.15);}
+        nav ul li:hover > ul{display: block;}
+        nav ul li{
+            float: left;
+            -webkit-transition: all .2s ease-in-out;
+            -moz-transition: all .2s ease-in-out;
+            transition: all .2s ease-in-out;
+        }
+        nav ul li a{
+            display: block;
+            padding: 30px 20px;
+            color: #222;
+            font-size: .9em;
+            letter-spacing: 1px;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+        nav ul ul{
+            display: none;
+            background: #fff;
+            position: absolute;
+            top: 100%;
+            box-shadow: -3px 3px 10px -2px rgba(0,0,0,.1);
+            border: 1px solid rgba(0,0,0,.1);
+        }
+        nav ul ul li{float: none; position: relative;}
+        nav ul ul li a {
+            padding: 15px 30px;
+            border-bottom: 1px solid rgba(0,0,0,.05);
+        }
+        nav ul ul ul {
+            position: absolute;
+            left: 100%;
+            top:0;
+        }
+    </style>
     <title>Create</title>
 </head>
 <body>
-<form action="#" th:action="@{/buyers-create}" th:object="${buyer}" method="post">
-    <label for="buyerId"> Buyer id</label>
-    <input type ="text" th:field="*{buyerId}" id ="buyerId" placeholder="Buyer Id">
-    <label for="buyerName"> Buyer name</label>
-    <input type ="text" th:field="*{buyerName}" id ="buyerName" placeholder="Buyer Name ">
-    <label for="buyerPhoneNumber"> Buyer phone number</label>
-    <input type ="text" th:field="*{buyerPhoneNumber}" id ="buyerPhoneNumber" placeholder="Buyer phone number">
-    <label for="buyerAddress"> Buyer address</label>
-    <input type ="text" th:field="*{buyerAddress}" id ="buyerAddress" placeholder="Buyer address">
-    <input type ="submit" value="Create User">
-</form>
+<nav role='navigation'>
+    <ul>
+        <li><a href="/buyers"> Buyers</a>
+        <li><a href="/contracts"> Contract</a>
+        <li><a href="/furnitures"> Furniture</a>
+        <li><a href="/realizations"> Realization</a>
+    </ul>
+</nav>
+<br>
+<br>
+<br>
+<div class="content" align="center">
+<div style="max-width: 500px; margin-left: auto; margin-right: auto; padding: 15px;">
+    <form id="form" action="#" th:action="@{/buyers-create}" th:object="${buyer}" method="post">
+        <div class="text-field">
+            <label class="text-field__label" for="buyerId"> Buyer id</label>
+            <input class="text-field__input" type="text" th:field="*{buyerId}" id="buyerId" autocomplete="off">
+            <div class="text-field__message"></div>
+        </div>
+        <div class="text-field">
+            <label class="text-field__label" for="buyerName"> Buyer name</label>
+            <input class="text-field__input" type="text" th:field="*{buyerName}" id="buyerName" autocomplete="off">
+            <div class="text-field__message"></div>
+        </div>
+        <div class="text-field">
+            <label class="text-field__label"  for="buyerPhoneNumber"> Buyer phone number</label>
+            <input class="text-field__input" type="text" th:field="*{buyerPhoneNumber}" id="buyerPhoneNumber" autocomplete="off">
+            <div class="text-field__message"></div>
+        </div>
+        <div class="text-field">
+
+            <label class="text-field__label" for="buyerAddress"> Buyer address</label>
+            <input class="text-field__input" type="text" th:field="*{buyerAddress}" id="buyerAddress" autocomplete="off">
+            <div class="text-field__message"></div>
+        </div>
+            <button type="submit">Отправить</button>
+
+    </form>
+</div>
 </body>
 </html>

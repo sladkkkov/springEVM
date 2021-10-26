@@ -29,7 +29,7 @@ public class BuyerController {
 
     @GetMapping("/buyers-create")
     public String createBuyerForm(Buyer buyer) {
-        return "buyer-list";
+        return "/buyers-create";
     }
 
     @PostMapping("/buyers-create")
@@ -41,8 +41,8 @@ public class BuyerController {
     @GetMapping("/buyers-update/{id}")
     public String updateUserForm(@PathVariable("id") Integer id, Model model) {
         Buyer buyer = buyerService.fingById(id);
-        model.addAttribute("buyers", buyer);
-        return "buyer-list";
+        model.addAttribute("buyer", buyer);
+        return "/buyers-update";
     }
 
     @PostMapping("/buyers-update")

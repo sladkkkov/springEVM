@@ -29,7 +29,7 @@ public class FurnitureController {
     @GetMapping("/furniture-update/{id}")
     public String furnitureUpdateForm(@PathVariable("id") Integer id, Model model){
         Furniture furniture = furnitureService.getById(id);
-        model.addAttribute("furnitures", furniture);
+        model.addAttribute("furniture", furniture);
         return "/furniture-update";
     }
     @PostMapping("/furniture-update")

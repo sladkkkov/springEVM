@@ -42,7 +42,7 @@ public class ContractController {
     @GetMapping("/contract-update/{id}")
     public String updateContractForm(@PathVariable("id") Integer id, Model model) {
         Contract contract = contractService.getById(id);
-        model.addAttribute("contracts", contract);
+        model.addAttribute("contract", contract);
         return "/contract-update";
     }
     @PostMapping("/contract-update")

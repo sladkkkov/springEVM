@@ -3,45 +3,133 @@
 
 <head>
     <meta charset="utf-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{fonts/icomoon/style.css}"/>
+    <link rel="stylesheet" th:href="@{css/owl.carousel.min.css}"/>
+    <link rel="stylesheet" th:href="@{css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{css/style.css}"/>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Lato);
 
+        *, *:before, *:after{
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            font-family: 'Lato', sans-serif;
+        }
+
+        /*| Navigation |*/
+
+        nav{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background:#212529;;
+            box-shadow: 0 3px 10px -2px rgba(0,0,0,.1);
+            border: 1px solid rgba(0,0,0,.1);
+        }
+        nav ul{
+            list-style: none;
+            position: relative;
+            float: right;
+            margin-right: 100px;
+            display: inline-table;
+        }
+        nav ul li{
+            float: left;
+            -webkit-transition: all .2s ease-in-out;
+            -moz-transition: all .2s ease-in-out;
+            transition: all .2s ease-in-out;
+        }
+
+        nav ul li:hover{background: rgba(0,0,0,.15);}
+        nav ul li:hover > ul{display: block;}
+        nav ul li{
+            float: left;
+            -webkit-transition: all .2s ease-in-out;
+            -moz-transition: all .2s ease-in-out;
+            transition: all .2s ease-in-out;
+        }
+        nav ul li a{
+            display: block;
+            padding: 25px 30px;
+            color: #fff;
+            font-size: .9em;
+            letter-spacing: 1px;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+        nav ul ul{
+            display: none;
+            background: #212529;;
+            position: absolute;
+            top: 100%;
+            box-shadow: -3px 3px 10px -2px rgba(0,0,0,.1);
+            border: 1px solid rgba(0,0,0,.1);
+        }
+        nav ul ul li{float: none; position: relative;}
+        nav ul ul li a {
+            padding: 15px 30px;
+            border-bottom: 5px solid rgba(0,0,0,.05);
+        }
+        nav ul ul ul {
+            position: absolute;
+            left: 100%;
+            top:0;
+        }
+    </style>
     <title>Buyer List</title>
 </head>
 <body>
 
+<nav role='navigation'>
+    <ul>
+        <li><a href="/buyers"> Buyers</a>
+        <li><a href="/contracts"> Contract</a>
+        <li><a href="/furnitures"> Furniture</a>
+        <li><a href="/realizations"> Realization</a>
+    </ul>
+</nav>
 
-<div class="content">
+<div class="content" align="center">
 
-    <div class="container">
-        <h2 class="mb-5">Buyer List</h2>
-        <div class="table-responsive custom-table-responsive">
-            <table class="table custom-table">
-                <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Name</th>
-                    <th>Phone Number</th>
-                    <th>Address</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="buyer : ${buyers}">
-                    <td th:text="${buyer.buyerId}"></td>
-                    <td th:text="${buyer.buyerName}"></td>
-                    <td th:text="${buyer.buyerPhoneNumber}"></td>
-                    <td th:text="${buyer.buyerAddress}"></td>
-                    <td><a th:href="@{buyers-update/{id}(id=${buyer.buyerId})}">Edit</a></td>
-                    <td><a th:href="@{buyers-delete/{id}(id=${buyer.buyerId})}">Delete</a></td>
-                </tr>
-                </tbody>
-            </table>
+    <div class="content">
+        <div class="container">
+            <h2 class="mb-5">Buyer List</h2>
+            <div class="table-responsive custom-table-responsive">
+                <table class="table custom-table">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Phone Number</th>
+                        <th>Address</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="buyer : ${buyers}">
+                        <td th:text="${buyer.buyerId}"></td>
+                        <td th:text="${buyer.buyerName}"></td>
+                        <td th:text="${buyer.buyerPhoneNumber}"></td>
+                        <td th:text="${buyer.buyerAddress}"></td>
+                        <td><a th:href="@{buyers-update/{id}(id=${buyer.buyerId})}">Edit</a></td>
+                        <td><a th:href="@{buyers-delete/{id}(id=${buyer.buyerId})}">Delete</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p><a href="/buyers-create">Create buyer</a></p>
         </div>
-        <p><a href="/buyers-create">Create buyer</a></p>
-   </div>
-</div>
+    </div>
 
-<script src="js/jquery-3.3.1.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/main.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

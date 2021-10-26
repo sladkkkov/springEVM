@@ -1,20 +1,117 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{css/style.label.css}"/>
 <title>Create buyer</title>
+<style>
+    @import url(https://fonts.googleapis.com/css?family=Lato);
+
+    *, *:before, *:after{
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        font-family: 'Lato', sans-serif;
+    }
+
+    /*| Navigation |*/
+
+    nav{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        box-shadow: 0 3px 10px -2px rgba(0,0,0,.1);
+        border: 1px solid rgba(0,0,0,.1);
+    }
+    nav ul{
+        list-style: none;
+        position: relative;
+        float: right;
+        margin-right: 100px;
+        display: inline-table;
+    }
+    nav ul li{
+        float: left;
+        -webkit-transition: all .2s ease-in-out;
+        -moz-transition: all .2s ease-in-out;
+        transition: all .2s ease-in-out;
+    }
+
+    nav ul li:hover{background: rgba(0,0,0,.15);}
+    nav ul li:hover > ul{display: block;}
+    nav ul li{
+        float: left;
+        -webkit-transition: all .2s ease-in-out;
+        -moz-transition: all .2s ease-in-out;
+        transition: all .2s ease-in-out;
+    }
+    nav ul li a{
+        display: block;
+        padding: 30px 20px;
+        color: #222;
+        font-size: .9em;
+        letter-spacing: 1px;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+    nav ul ul{
+        display: none;
+        background: #fff;
+        position: absolute;
+        top: 100%;
+        box-shadow: -3px 3px 10px -2px rgba(0,0,0,.1);
+        border: 1px solid rgba(0,0,0,.1);
+    }
+    nav ul ul li{float: none; position: relative;}
+    nav ul ul li a {
+        padding: 15px 30px;
+        border-bottom: 1px solid rgba(0,0,0,.05);
+    }
+    nav ul ul ul {
+        position: absolute;
+        left: 100%;
+        top:0;
+    }
+</style>
 </head>
 <body>
-<form action="#" th:action="@{/realization-update}" th:object="${realization}" method="post">
-    <label for="fkContractId">Contract id</label>
-    <input readonly type="number" th:field="*{fkContractId}" id="fkContractId" placeholder="Contract id">
-    <br/>
-    <label for="fkModelId"> Model id </label>
-    <input type="text" th:field="*{fkModelId}" id="fkModelId" placeholder=" Model id">
-    <br/>
-    <label for="quantity">Quantity</label>
-    <input type="text" th:field="*{quantity}" id="quantity" placeholder="quantity">
-      <br/>
-    <input type="submit" value="Update realization">
-</form>
+<nav role='navigation'>
+    <ul>
+        <li><a href="/buyers"> Buyers</a>
+        <li><a href="/contracts"> Contract</a>
+        <li><a href="/furnitures"> Furniture</a>
+        <li><a href="/realizations"> Realization</a>
+    </ul>
+</nav>
+
+<div class="content" align="center">
+
+<div style="max-width: 500px; margin-left: auto; margin-right: auto; padding: 15px;">
+
+    <form action="#" th:action="@{/realization-update}" th:object="${realization}" method="post">
+
+        <div class="text-field">
+            <label class="text-field__label" for="fkContractId">Contract id</label>
+            <input class="text-field__input" readonly type="number" th:field="*{fkContractId}" id="fkContractId" placeholder="Contract id">
+            <div class="text-field__message"></div>
+        </div>
+        <div class="text-field">
+            <label class="text-field__label" for="fkModelId"> Model id </label>
+            <input class="text-field__input"  type="text" th:field="*{fkModelId}" id="fkModelId" placeholder=" Model id">
+            <div class="text-field__message"></div>
+        </div>
+        <div class="text-field">
+            <label class="text-field__label" for="quantity">Quantity</label>
+            <input class="text-field__input" type="text" th:field="*{quantity}" id="quantity" placeholder="quantity">
+            <div class="text-field__message"></div>
+        </div>
+        <div class="text-field">
+            <input class="text-field__input" type="submit" value="Update realization">
+        </div>
+    </form>
+</div>
 </body>
 </html>

@@ -27,8 +27,8 @@ public class Buyer {
     @Column(name = "buyers_address")
     private String buyerAddress;
 
-    @OneToMany(cascade = CascadeType.ALL)
+  /*  @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "fk_buyer_id")
-    private List<Contract> contracts;
+    private List<Contract> contracts;*/
 
 }

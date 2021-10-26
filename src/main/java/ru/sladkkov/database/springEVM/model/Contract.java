@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 @Data
@@ -25,7 +25,5 @@ public class Contract {
     @Column(name = "date_of_execution")
     private Date dateOfExecution;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_contract_id")
-    private List<Realization> realizations;
+
 }

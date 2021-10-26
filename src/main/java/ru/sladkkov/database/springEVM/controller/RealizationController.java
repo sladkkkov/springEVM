@@ -41,7 +41,7 @@ public class RealizationController {
     @GetMapping("/realization-update/{id}")
     public String updateUserForm(@PathVariable("id") Integer id, Model model) {
         Realization realization = realizationService.fingById(id);
-        model.addAttribute("realizations", realization);
+        model.addAttribute("realization", realization);
         return "realization-update";
     }
 
